@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="DEV|Win32">
+      <Configuration>DEV</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="gcc|Win32">
+      <Configuration>gcc</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Protected Mode|Win32">
+      <Configuration>Protected Mode</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Real Mode|Win32">
+      <Configuration>Real Mode</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Kernel\Source\gdt.c" />
+    <ClCompile Include="Kernel\Source\idt.c" />
+    <ClCompile Include="Kernel\Source\io.c" />
+    <ClCompile Include="Kernel\Source\irq.c" />
+    <ClCompile Include="Kernel\Source\isr.c" />
+    <ClCompile Include="Kernel\Source\keyboard.c" />
+    <ClCompile Include="Kernel\Source\kmain.c" />
+    <ClCompile Include="Kernel\Source\stdlib.c" />
+    <ClCompile Include="Kernel\Source\string.c" />
+    <ClCompile Include="Kernel\Source\timer.c" />
+    <ClCompile Include="Kernel\Source\video.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Bochs\bochsrc.bxrc" />
+    <None Include="Bootloader\Multibootloader\Multibootloader.asm" />
+    <None Include="Bootloader\Stage 1\boot.asm" />
+    <None Include="Bootloader\Stage 2\gdt.inc" />
+    <None Include="Bootloader\Stage 2\SecondStageLoader.asm" />
+    <None Include="Build.bat" />
+    <None Include="build.sh" />
+    <None Include="kernel.ld" />
+    <None Include="Kernel\Source\gdt_setup.asm" />
+    <None Include="Kernel\Source\interrupts.asm" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Bootloader\Stage 1\makefile" />
+    <Text Include="Bootloader\Stage 2\makefile" />
+    <Text Include="Kernel\makefile" />
+    <Text Include="makefile" />
+    <Text Include="Readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Kernel\Source\gdt.h" />
+    <ClInclude Include="Kernel\Source\idt.h" />
+    <ClInclude Include="Kernel\Source\io.h" />
+    <ClInclude Include="Kernel\Source\irq.h" />
+    <ClInclude Include="Kernel\Source\isr.h" />
+    <ClInclude Include="Kernel\Source\kernel.h" />
+    <ClInclude Include="Kernel\Source\keyboard.h" />
+    <ClInclude Include="Kernel\Source\stdlib.h" />
+    <ClInclude Include="Kernel\Source\string.h" />
+    <ClInclude Include="Kernel\Source\timer.h" />
+    <ClInclude Include="Kernel\Source\types.h" />
+    <ClInclude Include="Kernel\Source\video.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{229C0986-A7A5-4968-BBA6-F3BEB538C5C9}</ProjectGuid>
+    <RootNamespace>IntoxOS</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Protected Mode|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='gcc|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Real Mode|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='DEV|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Protected Mode|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='gcc|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Real Mode|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath />
+    <SourcePath>$(SourcePath)</SourcePath>
+    <NMakePreprocessorDefinitions>__gcc__</NMakePreprocessorDefinitions>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DEV|Win32'">
+    <IncludePath>
+    </IncludePath>
+    <SourcePath>..</SourcePath>
+    <NMakePreprocessorDefinitions>__gcc__</NMakePreprocessorDefinitions>
+    <NMakeBuildCommandLine>$(ProjectDir)\Builder\build.bat F:\cygwin\bin\bash</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>$(ProjectDir)\Builder\build.bat F:\cygwin\bin\bash</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>$(ProjectDir)\Builder\clean.bat</NMakeCleanCommandLine>
+    <NMakeIncludeSearchPath>$(SolutionDir)\..\Kernel\Source</NMakeIncludeSearchPath>
+    <NMakeForcedIncludes>
+    </NMakeForcedIncludes>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Protected Mode|Win32'">
+    <IncludePath />
+    <SourcePath>..</SourcePath>
+    <NMakeBuildCommandLine>$(ProjectDir)\build.bat C:\cygwin\bin\bash make</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>$(ProjectDir)\build.bat C:\cygwin\bin\bash make</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>$(ProjectDir)\build.bat C:\cygwin\bin\bash clean</NMakeCleanCommandLine>
+    <NMakePreprocessorDefinitions>__protcMode__</NMakePreprocessorDefinitions>
+    <NMakeIncludeSearchPath>$(SolutionDir)\..\Kernel\Source</NMakeIncludeSearchPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='gcc|Win32'">
+    <IncludePath />
+    <SourcePath>..</SourcePath>
+    <NMakeBuildCommandLine>$(ProjectDir)\build.bat F:\cygwin\bin\bash make</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>$(ProjectDir)\build.bat F:\cygwin\bin\bash make</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>$(ProjectDir)\build.bat F:\cygwin\bin\bash clean</NMakeCleanCommandLine>
+    <NMakePreprocessorDefinitions>__protcMode__</NMakePreprocessorDefinitions>
+    <NMakeIncludeSearchPath>$(SolutionDir)\..\Kernel\Source</NMakeIncludeSearchPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Real Mode|Win32'">
+    <IncludePath />
+    <SourcePath />
+    <NMakePreprocessorDefinitions>__realMode__</NMakePreprocessorDefinitions>
+    <NMakeIncludeSearchPath>$(SolutionDir)\..\Kernel\Source</NMakeIncludeSearchPath>
+    <NMakeBuildCommandLine>$(ProjectDir)\Builder\Build16Bit.bat F:\cygwin\bin\bash</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>$(ProjectDir)\Builder\Build16Bit.bat F:\cygwin\bin\bash</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>$(ProjectDir)\Builder\clean.bat</NMakeCleanCommandLine>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DEV|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Protected Mode|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='gcc|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Real Mode|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

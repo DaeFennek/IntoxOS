@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Kernel">
+      <UniqueIdentifier>{e315ed11-4280-48c4-8562-5974fd43d7e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Kernel\Source">
+      <UniqueIdentifier>{ca96cc6a-1021-48a7-a58d-c2da4d807ed2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bootloader">
+      <UniqueIdentifier>{7f31df2e-9f81-47e4-996c-b4b8dbd883c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bootloader\Stage 1">
+      <UniqueIdentifier>{52a86b74-a00d-4ad2-9e78-acee04e98d7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bootloader\Stage 2">
+      <UniqueIdentifier>{3df78c12-be0d-457a-a823-cd0d3638a029}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bochs">
+      <UniqueIdentifier>{1a2e62bb-46b3-4f7e-a862-4a65e0851449}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Kernel\Source\Include">
+      <UniqueIdentifier>{169bd145-c64e-46a2-814a-91416d5cbde8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Multiboot">
+      <UniqueIdentifier>{e8d68f22-1b76-4c5e-9e25-569b0dd4c2e9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Kernel\Source\kmain.c">
+      <Filter>Kernel\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Kernel\Source\video.c">
+      <Filter>Kernel\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Kernel\Source\string.c">
+      <Filter>Kernel\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Kernel\Source\io.c">
+      <Filter>Kernel\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Kernel\Source\keyboard.c">
+      <Filter>Kernel\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Kernel\Source\stdlib.c">
+      <Filter>Kernel\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Kernel\Source\idt.c">
+      <Filter>Kernel\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Kernel\Source\irq.c">
+      <Filter>Kernel\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Kernel\Source\gdt.c">
+      <Filter>Kernel\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Kernel\Source\timer.c">
+      <Filter>Kernel\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Kernel\Source\isr.c">
+      <Filter>Kernel\Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Bochs\bochsrc.bxrc">
+      <Filter>Bochs</Filter>
+    </None>
+    <None Include="Bootloader\Stage 2\gdt.inc">
+      <Filter>Bootloader\Stage 2</Filter>
+    </None>
+    <None Include="Bootloader\Stage 1\boot.asm">
+      <Filter>Bootloader\Stage 1</Filter>
+    </None>
+    <None Include="Bootloader\Stage 2\SecondStageLoader.asm">
+      <Filter>Bootloader\Stage 2</Filter>
+    </None>
+    <None Include="Build.bat" />
+    <None Include="build.sh" />
+    <None Include="kernel.ld" />
+    <None Include="Kernel\Source\interrupts.asm">
+      <Filter>Kernel\Source</Filter>
+    </None>
+    <None Include="Kernel\Source\gdt_setup.asm">
+      <Filter>Kernel\Source</Filter>
+    </None>
+    <None Include="Bootloader\Multibootloader\Multibootloader.asm">
+      <Filter>Multiboot</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Readme.txt" />
+    <Text Include="makefile" />
+    <Text Include="Bootloader\Stage 1\makefile">
+      <Filter>Bootloader\Stage 1</Filter>
+    </Text>
+    <Text Include="Bootloader\Stage 2\makefile">
+      <Filter>Bootloader\Stage 2</Filter>
+    </Text>
+    <Text Include="Kernel\makefile">
+      <Filter>Kernel</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Kernel\Source\video.h">
+      <Filter>Kernel\Source\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Kernel\Source\types.h">
+      <Filter>Kernel\Source\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Kernel\Source\string.h">
+      <Filter>Kernel\Source\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Kernel\Source\io.h">
+      <Filter>Kernel\Source\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Kernel\Source\kernel.h">
+      <Filter>Kernel\Source\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Kernel\Source\keyboard.h">
+      <Filter>Kernel\Source\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Kernel\Source\stdlib.h">
+      <Filter>Kernel\Source\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Kernel\Source\idt.h">
+      <Filter>Kernel\Source\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Kernel\Source\irq.h">
+      <Filter>Kernel\Source\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Kernel\Source\gdt.h">
+      <Filter>Kernel\Source\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Kernel\Source\timer.h">
+      <Filter>Kernel\Source\Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Kernel\Source\isr.h">
+      <Filter>Kernel\Source\Include</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,210 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+                0x00008000                entryPoint = 0x8000
+
+.text           0x00008000     0x1338
+ *(.text)
+ .text          0x00008000       0xbc ./object_files/SecondStageLoader.o
+                0x00008000                RealMode
+ *fill*         0x000080bc        0x4 
+ .text          0x000080c0       0x1d ./object_files/gdt_setup.o
+                0x000080c0                gdt_flush
+ *fill*         0x000080dd        0x3 
+ .text          0x000080e0      0x200 ./object_files/interrupts.o
+                0x000080e0                get_stackPtr
+                0x000080e4                idt_flush
+                0x000080ec                isr0
+                0x000080f6                isr1
+                0x00008100                isr2
+                0x0000810a                isr3
+                0x00008114                isr4
+                0x0000811e                isr5
+                0x00008128                isr6
+                0x00008132                isr7
+                0x0000813c                isr8
+                0x00008144                isr9
+                0x0000814e                isr10
+                0x00008156                isr11
+                0x0000815e                isr12
+                0x00008166                isr13
+                0x0000816e                isr14
+                0x00008176                isr15
+                0x00008180                isr16
+                0x0000818a                isr17
+                0x00008194                isr18
+                0x0000819e                isr19
+                0x000081a8                isr20
+                0x000081b2                isr21
+                0x000081bc                isr22
+                0x000081c6                isr23
+                0x000081d0                isr24
+                0x000081da                isr25
+                0x000081e4                isr26
+                0x000081ee                isr27
+                0x000081f8                isr28
+                0x00008202                isr29
+                0x0000820c                isr30
+                0x00008216                isr31
+                0x0000821d                irq0
+                0x00008227                irq1
+                0x00008231                irq2
+                0x0000823b                irq3
+                0x00008242                irq4
+                0x00008249                irq5
+                0x00008250                irq6
+                0x00008257                irq7
+                0x0000825e                irq8
+                0x00008265                irq9
+                0x0000826c                irq10
+                0x00008273                irq11
+                0x0000827a                irq12
+                0x00008281                irq13
+                0x00008288                irq14
+                0x0000828f                irq15
+ .text          0x000082e0      0x28c ./object_files/kmain.o
+                0x000082e0                main
+ .text          0x0000856c      0x1d8 ./object_files/video.o
+                0x00008606                InitConsole
+                0x00008634                GetConsole
+                0x0000863a                k_print
+                0x000086d7                clrConsoleScreen
+                0x00008707                printKernelInformations
+ .text          0x00008744       0x10 ./object_files/io.o
+                0x00008744                outportb
+                0x0000874e                inportb
+ .text          0x00008754       0xd7 ./object_files/string.o
+                0x00008754                ConvertInt2String
+                0x000087f0                strlen
+                0x0000880c                memset
+ *fill*         0x0000882b        0x1 
+ .text          0x0000882c       0xe9 ./object_files/gdt.o
+                0x0000882c                gdt_install
+ *fill*         0x00008915        0x3 
+ .text          0x00008918       0x7f ./object_files/idt.o
+                0x00008918                idt_install
+                0x0000895a                idt_set_gate
+ *fill*         0x00008997        0x1 
+ .text          0x00008998      0x4f1 ./object_files/isr.o
+                0x00008998                isr_install
+                0x00008e1f                isr_handler
+ *fill*         0x00008e89        0x3 
+ .text          0x00008e8c      0x3b8 ./object_files/irq.o
+                0x00008e8c                irq_remap
+                0x00008f5b                irq_install
+                0x000091c3                register_interrupt_handler
+                0x000091d5                unregister_interrupt_handler
+                0x000091e7                irq_handler
+ .text          0x00009244       0x40 ./object_files/timer.o
+                0x00009256                timer_install
+                0x00009271                timer_uninstall
+ .text          0x00009284       0xb4 ./object_files/keyboard.o
+                0x00009284                keyboard_init
+                0x000092a9                FetchAndAnalyzeScancode
+                0x000092f3                keyboard_handler
+                0x00009304                k_getch
+                0x00009305                keyboard_install
+                0x00009325                keyboard_uninstall
+
+.rodata         0x00009340       0x26
+ *(.rodata)
+ .rodata        0x00009340       0x26 ./object_files/kmain.o
+                0x00009340                yolo
+
+.rodata.str1.1  0x00009366       0x5d
+ .rodata.str1.1
+                0x00009366       0x4d ./object_files/kmain.o
+ .rodata.str1.1
+                0x000093b3       0x10 ./object_files/isr.o
+
+.eh_frame       0x000093c4      0x488
+ .eh_frame      0x000093c4       0x34 ./object_files/kmain.o
+ .eh_frame      0x000093f8      0x104 ./object_files/video.o
+ .eh_frame      0x000094fc       0x40 ./object_files/io.o
+ .eh_frame      0x0000953c       0x84 ./object_files/string.o
+ .eh_frame      0x000095c0       0x30 ./object_files/gdt.o
+ .eh_frame      0x000095f0       0x44 ./object_files/idt.o
+ .eh_frame      0x00009634       0x60 ./object_files/isr.o
+ .eh_frame      0x00009694       0xa8 ./object_files/irq.o
+ .eh_frame      0x0000973c       0x60 ./object_files/timer.o
+ .eh_frame      0x0000979c       0xb0 ./object_files/keyboard.o
+
+.rodata.str1.4  0x0000984c       0x4f
+ .rodata.str1.4
+                0x0000984c       0x4f ./object_files/video.o
+
+.data           0x000098a0      0x1a0
+ *(.data)
+ .data          0x000098a0       0xc9 ./object_files/SecondStageLoader.o
+ *fill*         0x00009969        0x3 
+ .data          0x0000996c       0x45 ./object_files/kmain.o
+                0x0000996c                setupKeyboard
+                0x0000997b                setupTimerState
+                0x00009987                setupIRQState
+                0x00009991                setupISRState
+                0x0000999d                setupIDTState
+                0x000099a7                setupGDTState
+ *fill*         0x000099b1        0x3 
+ .data          0x000099b4        0x0 ./object_files/video.o
+ .data          0x000099b4        0x0 ./object_files/io.o
+ .data          0x000099b4        0x0 ./object_files/string.o
+ .data          0x000099b4        0x0 ./object_files/gdt.o
+ .data          0x000099b4        0x0 ./object_files/idt.o
+ .data          0x000099b4        0x0 ./object_files/isr.o
+ .data          0x000099b4        0x0 ./object_files/irq.o
+ .data          0x000099b4        0x0 ./object_files/timer.o
+ *fill*         0x000099b4        0xc 
+ .data          0x000099c0       0x80 ./object_files/keyboard.o
+                0x000099c0                keymap
+
+.bss            0x00009a40      0xc8c
+ *(.bss)
+ .bss           0x00009a40        0x0 ./object_files/kmain.o
+ .bss           0x00009a40        0x8 ./object_files/video.o
+                0x00009a40                debugConsole
+ .bss           0x00009a48        0x0 ./object_files/io.o
+ .bss           0x00009a48        0x0 ./object_files/string.o
+ *fill*         0x00009a48       0x18 
+ .bss           0x00009a60       0x48 ./object_files/gdt.o
+                0x00009a60                gdt_ptr
+                0x00009a80                gdt_entries
+ *fill*         0x00009aa8       0x18 
+ .bss           0x00009ac0      0xc06 ./object_files/idt.o
+                0x00009ac0                interrupt_handlers
+ *fill*         0x0000a6c6        0x2 
+ .bss           0x0000a6c8        0x0 ./object_files/isr.o
+ .bss           0x0000a6c8        0x0 ./object_files/irq.o
+ .bss           0x0000a6c8        0x4 ./object_files/timer.o
+                0x0000a6c8                tick
+ .bss           0x0000a6cc        0x0 ./object_files/keyboard.o
+LOAD ./object_files/SecondStageLoader.o
+LOAD ./object_files/gdt_setup.o
+LOAD ./object_files/interrupts.o
+LOAD ./object_files/kmain.o
+LOAD ./object_files/video.o
+LOAD ./object_files/io.o
+LOAD ./object_files/string.o
+LOAD ./object_files/gdt.o
+LOAD ./object_files/idt.o
+LOAD ./object_files/isr.o
+LOAD ./object_files/irq.o
+LOAD ./object_files/timer.o
+LOAD ./object_files/keyboard.o
+OUTPUT(a.out binary)
+
+.comment        0x00000000       0xb4
+ .comment       0x00000000       0x12 ./object_files/kmain.o
+ .comment       0x00000012       0x12 ./object_files/video.o
+ .comment       0x00000024       0x12 ./object_files/io.o
+ .comment       0x00000036       0x12 ./object_files/string.o
+ .comment       0x00000048       0x12 ./object_files/gdt.o
+ .comment       0x0000005a       0x12 ./object_files/idt.o
+ .comment       0x0000006c       0x12 ./object_files/isr.o
+ .comment       0x0000007e       0x12 ./object_files/irq.o
+ .comment       0x00000090       0x12 ./object_files/timer.o
+ .comment       0x000000a2       0x12 ./object_files/keyboard.o
