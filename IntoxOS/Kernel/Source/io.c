@@ -15,14 +15,14 @@
 
 inline void outportb(uInt32_t port, uInt8_t value)
 {	
-	 UseAtAtSyntax;
-     asm volatile ("outb %%al,%%dx"::"d" (port), "a" (value));
+	 //UseAtAtSyntax;
+	__asm__ volatile ("outb %%al,%%dx"::"d" (port), "a" (value));
 }
 
 inline uInt32_t inportb(uInt32_t port)
 {
 	uInt32_t result; // 8 bit should be enaugh
-	UseAtAtSyntax;
-	asm volatile ("inb %w1,%b0" : "=a"(result) : "d"(port));
+	//UseAtAtSyntax;
+	__asm__ volatile ("inb %w1,%b0" : "=a"(result) : "d"(port));
 	return result;
 }

@@ -27,25 +27,12 @@ uInt8_t setupIRQState[] = "Setup IRQ";
 uInt8_t setupTimerState[] = "Setup Timer";
 uInt8_t setupKeyboard[] = "Setup Keyboard";
 
-
-//extern uInt32_t get_stackPtr();
-//unsigned char yolo[] = "Dies ist ein data segment test array\n"; // <-- data segment / doesnt work
-//unsigned char* yolo = "Dies ist ein data segment test ptr\n"; // segment .rodata.str1.4 / doesnt work
-//const unsigned char* yolo = "Dies ist ein data segment test const ptr\n"; // segment .rodata.str1.4 / doesnt work
-const unsigned char yolo[] = "Dies ist ein data segment test const\n"; // .rodata segment / works :)
-
-
-
-
 void main()
 {	
-	asm volatile("cli");
+	__asm__ volatile("cli");
 
 	Console* con = InitConsole();
-	clrConsoleScreen(con);
-
-	//k_print(yolo, ColorBlack | ColorGreen, con);
-	
+	clrConsoleScreen(con);	
 
 	printKernelInformations(con);
 	
@@ -88,9 +75,9 @@ void main()
 	k_print("]\n", ColorBlack | ColorLightGray, con);
 	
 	
-	asm volatile("sti");
+	__asm__ volatile("sti");
 
-	asm volatile("int $0x1");
+	__asm__ volatile("int $0x1");
 
 	for(;;);   
 }

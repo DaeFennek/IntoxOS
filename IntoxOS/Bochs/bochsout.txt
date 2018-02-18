@@ -33,7 +33,7 @@
 00000000000i[      ]   SB16 support: yes
 00000000000i[      ]   USB support: yes
 00000000000i[      ]   VGA extension support: vbe cirrus voodoo
-00000000000i[MEM0  ] allocated memory at 03BD0020. after alignment, vector=03BD1000
+00000000000i[MEM0  ] allocated memory at 03C90020. after alignment, vector=03C91000
 00000000000i[MEM0  ] 32,00MB
 00000000000i[MEM0  ] mem block size = 0x00100000, blocks=32
 00000000000i[MEM0  ] rom at 0xfffe0000/131072 ('F:\Program Files (x86)\Bochs-2.6.6/BIOS-bochs-latest')
@@ -44,7 +44,7 @@
 00000000000i[DEV   ] PIIX3 PCI-to-ISA bridge present at device 1, function 0
 00000000000i[PLUGIN] init_dev of 'cmos' plugin device by virtual method
 00000000000i[CMOS  ] Using local time for initial clock
-00000000000i[CMOS  ] Setting initial clock to: Mon Sep 08 20:00:14 2014 (time0=1410199214)
+00000000000i[CMOS  ] Setting initial clock to: Mon Jan 22 21:22:16 2018 (time0=1516652536)
 00000000000i[PLUGIN] init_dev of 'dma' plugin device by virtual method
 00000000000i[DMA   ] channel 4 used by cascade
 00000000000i[PLUGIN] init_dev of 'pic' plugin device by virtual method
@@ -200,25 +200,25 @@
 00036415885i[FLOPPY] read() on floppy image returns 0
 00036526996i[FLOPPY] read() on floppy image returns 0
 00036638107i[FLOPPY] read() on floppy image returns 0
-00596300000p[WINGUI] >>PANIC<< POWER button turned off.
-00596300000i[CPU0  ] CPU is in protected mode (active)
-00596300000i[CPU0  ] CS.mode = 32 bit
-00596300000i[CPU0  ] SS.mode = 32 bit
-00596300000i[CPU0  ] EFER   = 0x00000000
-00596300000i[CPU0  ] | EAX=00000000  EBX=00009a40  ECX=00000000  EDX=000003d5
-00596300000i[CPU0  ] | ESP=001fffe0  EBP=001ffff8  ESI=000e9932  EDI=0000ffac
-00596300000i[CPU0  ] | IOPL=0 id vip vif ac vm rf nt of df IF tf sf zf af PF cf
-00596300000i[CPU0  ] | SEG sltr(index|ti|rpl)     base    limit G D
-00596300000i[CPU0  ] |  CS:0008( 0001| 0|  0) 00000000 ffffffff 1 1
-00596300000i[CPU0  ] |  DS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-00596300000i[CPU0  ] |  SS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-00596300000i[CPU0  ] |  ES:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-00596300000i[CPU0  ] |  FS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-00596300000i[CPU0  ] |  GS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
-00596300000i[CPU0  ] | EIP=0000856a (0000856a)
-00596300000i[CPU0  ] | CR0=0x60000011 CR2=0x00000000
-00596300000i[CPU0  ] | CR3=0x00000000 CR4=0x00000000
-00596300000i[CPU0  ] 0x000000000000856a>> jmp .-2 (0x0000856a) : EBFE
-00596300000i[CMOS  ] Last time is 1410199273 (Mon Sep 08 20:01:13 2014)
-00596300000i[      ] restoring default signal behavior
-00596300000i[SIM   ] quit_sim called with exit code 1
+02384000000p[WINGUI] >>PANIC<< POWER button turned off.
+02384000000i[CPU0  ] CPU is in protected mode (active)
+02384000000i[CPU0  ] CS.mode = 32 bit
+02384000000i[CPU0  ] SS.mode = 32 bit
+02384000000i[CPU0  ] EFER   = 0x00000000
+02384000000i[CPU0  ] | EAX=00000000  EBX=00009a40  ECX=00000000  EDX=000003d5
+02384000000i[CPU0  ] | ESP=001fffe0  EBP=001ffff8  ESI=000e9932  EDI=0000ffac
+02384000000i[CPU0  ] | IOPL=0 id vip vif ac vm rf nt of df IF tf sf zf af PF cf
+02384000000i[CPU0  ] | SEG sltr(index|ti|rpl)     base    limit G D
+02384000000i[CPU0  ] |  CS:0008( 0001| 0|  0) 00000000 ffffffff 1 1
+02384000000i[CPU0  ] |  DS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+02384000000i[CPU0  ] |  SS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+02384000000i[CPU0  ] |  ES:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+02384000000i[CPU0  ] |  FS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+02384000000i[CPU0  ] |  GS:0010( 0002| 0|  0) 00000000 ffffffff 1 1
+02384000000i[CPU0  ] | EIP=0000856a (0000856a)
+02384000000i[CPU0  ] | CR0=0x60000011 CR2=0x00000000
+02384000000i[CPU0  ] | CR3=0x00000000 CR4=0x00000000
+02384000000i[CPU0  ] 0x000000000000856a>> jmp .-2 (0x0000856a) : EBFE
+02384000000i[CMOS  ] Last time is 1516652774 (Mon Jan 22 21:26:14 2018)
+02384000000i[      ] restoring default signal behavior
+02384000000i[SIM   ] quit_sim called with exit code 1

@@ -61,5 +61,4 @@ void clrConsoleScreen(Console *console);
 
 void printKernelInformations(Console *console);
 
-//void printShellYolo(Console *console);
 #endif
